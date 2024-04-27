@@ -1,3 +1,5 @@
+"use client";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 
 type UserProps = {
@@ -68,7 +70,10 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
       </div>
       <div className="navbar-end">
         {session?.user ? (
-          <button className="btn btn-error btn-outline text-white rounded-full px-5">
+          <button
+            onClick={() => signOut()}
+            className="btn btn-error btn-outline text-white rounded-full px-5"
+          >
             Logout
           </button>
         ) : (
