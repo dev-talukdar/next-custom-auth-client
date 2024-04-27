@@ -1,6 +1,11 @@
+import { authOptions } from "@/utils/authOptions";
+import { getServerSession } from "next-auth";
+import Image from "next/image";
 import Link from "next/link";
 
-const Sidebar = () => {
+const Sidebar = async () => {
+  const session = await getServerSession(authOptions);
+  console.log(session);
   return (
     <div>
       <ul className="menu bg-base-200 min-h-screen rounded-box">
@@ -61,6 +66,19 @@ const Sidebar = () => {
             Settings
           </Link>
         </li>
+        {session?.user && (
+          <>
+            <Image
+              src={session?.user?.image}
+              alt="user-avatar"
+              width={100}
+              height={100}
+              className="avatar rounded-full flex justify-center items-center ml-4 mt-8 border-2 border-gray-300"
+            />
+            <p>{session?.user?.name}</p>
+            <p>{session?.user?.email}</p>
+          </>
+        )}
       </ul>
     </div>
   );
