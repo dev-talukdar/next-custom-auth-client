@@ -1,19 +1,19 @@
 "use server";
 
-import { UserData } from "@/app/register/page";
+import { FormValues } from "@/app/login/page";
 
-const registerUser = async (data: UserData) => {
-  const res = await fetch(`${process.env.BACKEND_URL}/register `, {
+const loginUser = async (data: FormValues) => {
+  const res = await fetch(`${process.env.BACKEND_URL}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
+
     cache: "no-store",
   });
-
   const userInfo = await res.json();
   return userInfo;
 };
 
-export default registerUser;
+export default loginUser;

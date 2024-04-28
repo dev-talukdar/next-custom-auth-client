@@ -1,15 +1,26 @@
-import Image from "next/image";
+import "./loader.css";
 
 const LoadingPage = () => {
   return (
-    <div className="w-[90%] mx-auto">
-      <Image
-        src="https://i.stack.imgur.com/hzk6C.gif"
-        width={500}
-        height={500}
-        alt="loading"
-        className="w-96 mx-auto"
-      />
+    <div className="flex justify-center my-20">
+      <div className="loader">
+        <div className="dot"></div>
+      </div>
+      <div className="loader">
+        <div className="dot"></div>
+      </div>
+      <div className="loader">
+        <div className="dot"></div>
+      </div>
+      <div className="loader">
+        <div className="dot"></div>
+      </div>
+      <div className="loader">
+        <div className="dot"></div>
+      </div>
+      <div className="loader">
+        <div className="dot"></div>
+      </div>
     </div>
   );
 };
