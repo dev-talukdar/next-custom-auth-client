@@ -27,6 +27,7 @@ const LoginPage = () => {
       // console.log(res);
       if (res.accessToken) {
         alert(res.message);
+        localStorage.setItem("accessToken", res.accessToken);
         router.push("/");
       }
     } catch (err: any) {
