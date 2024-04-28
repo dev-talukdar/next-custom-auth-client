@@ -2,6 +2,7 @@ import { authOptions } from "@/utils/authOptions";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
+import avatar from "../../../public/user_2102647.png";
 
 const Sidebar = async () => {
   const session = await getServerSession(authOptions);
@@ -69,7 +70,10 @@ const Sidebar = async () => {
         {session?.user && (
           <>
             <Image
-              src={session?.user?.image}
+              src={
+                session?.user?.image ||
+                "https://scontent.fdac24-2.fna.fbcdn.net/v/t1.6435-9/101558687_10220666224358451_7180293172600242176_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=nDda2nhJwUwAb5fzvN4&_nc_ht=scontent.fdac24-2.fna&oh=00_AfC_Wjr53Ufo9cajhFEyyI3juF8kY-PPHXeQLS9JWIV45A&oe=66557BB8"
+              }
               alt="user-avatar"
               width={100}
               height={100}

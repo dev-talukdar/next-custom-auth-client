@@ -15,5 +15,9 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-  secret: "fcad7c24da77f81d1",
+  pages: {
+    signIn: "/login",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  // secret: "fcad7c24da77f81d1",
 };
